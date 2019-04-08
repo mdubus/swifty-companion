@@ -10,17 +10,19 @@
 import UIKit
 
 class ViewController: UIViewController, APIDelegate {
+    @IBOutlet weak var searchBar: UISearchBar!
     var token: String = ""
+    var apiController:APIController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let apiController = APIController(delegate: self)
-        apiController.getToken()
+        apiController = APIController(delegate: self)
+        apiController!.getToken()
+        searchBar.autocapitalizationType = .none
     }
     
     func retrieveToken(_ token: String) {
         self.token = token
-        print(self.token)
     }
     
     func manageError(_ error: String) {
@@ -30,6 +32,12 @@ class ViewController: UIViewController, APIDelegate {
             self.present(alert, animated: true)
         }
     }
+    
+    @IBAction func searchForLogin(_ sender: UIButton) {
+        guard let login = searchBar.text, login.trimmingCharacters(in: .whitespaces).isEmpty == false else {self.manageError("Please provide a login"); return}
+        apiController!.getUser(login)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
