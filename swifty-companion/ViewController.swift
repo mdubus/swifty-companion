@@ -25,6 +25,15 @@ class ViewController: UIViewController, APIDelegate {
         self.token = token
     }
     
+    func retrieveUserData(_ userData: User) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: "userViewController") as? UserViewController else {self.manageError("No userViewController found !"); return}
+        vc.user = userData
+        if let navigator = navigationController {
+            navigator.pushViewController(vc, animated: true)
+        }
+    }
+    
     func manageError(_ error: String) {
         let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))

@@ -15,6 +15,7 @@ let USERURL = "https://api.intra.42.fr/v2/users"
 protocol APIDelegate:class {
     func manageError(_ error:String)
     func retrieveToken(_ token: String)
+    func retrieveUserData(_ userData: User)
 }
 
 class APIController {
@@ -64,7 +65,9 @@ class APIController {
             do {
                 let decoder = JSONDecoder()
                 let userData = try decoder.decode(User.self, from: data)
-                print(userData)
+//                print(userData)
+                self.delegate?.retrieveUserData(userData)
+                
             } catch let error {
                 self.delegate?.manageError(error.localizedDescription)
             }

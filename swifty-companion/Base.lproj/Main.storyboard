@@ -54,6 +54,21 @@
             </objects>
             <point key="canvasLocation" x="476" y="100.29985007496252"/>
         </scene>
+        <!--User View Controller-->
+        <scene sceneID="8zv-uj-Syh">
+            <objects>
+                <viewController storyboardIdentifier="userViewController" id="2We-ea-7l0" customClass="UserViewController" customModule="swifty_companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oex-eN-SFq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="S8I-nx-c7l"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zpJ-gV-rpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228" y="99"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jYa-tm-Ee8">
             <objects>
