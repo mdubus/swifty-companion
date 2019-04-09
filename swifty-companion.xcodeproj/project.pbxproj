@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		22CBE7F5225B969700AD59D2 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CBE7F4225B969700AD59D2 /* Token.swift */; };
 		22CBE7F8225BA3CA00AD59D2 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CBE7F7225BA3CA00AD59D2 /* APIController.swift */; };
+		22EBDE1C225D212D00DB72F3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBDE1B225D212D00DB72F3 /* User.swift */; };
 		6EA2C1D866535ACBBDB24560 /* Pods_swifty_companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0325D37FCC5A2C0328A4D811 /* Pods_swifty_companion.framework */; };
 		D996B685225A3C0A004576BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996B684225A3C0A004576BF /* AppDelegate.swift */; };
 		D996B687225A3C0A004576BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996B686225A3C0A004576BF /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 		0325D37FCC5A2C0328A4D811 /* Pods_swifty_companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swifty_companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CBE7F4225B969700AD59D2 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		22CBE7F7225BA3CA00AD59D2 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		22EBDE1B225D212D00DB72F3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5AF829BCDA58635170053B55 /* Pods-swifty-companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swifty-companion.debug.xcconfig"; path = "Target Support Files/Pods-swifty-companion/Pods-swifty-companion.debug.xcconfig"; sourceTree = "<group>"; };
 		D996B681225A3C0A004576BF /* swifty-companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swifty-companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D996B684225A3C0A004576BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				22CBE7F4225B969700AD59D2 /* Token.swift */,
+				22EBDE1B225D212D00DB72F3 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				22CBE7F8225BA3CA00AD59D2 /* APIController.swift in Sources */,
 				22CBE7F5225B969700AD59D2 /* Token.swift in Sources */,
 				D996B687225A3C0A004576BF /* ViewController.swift in Sources */,
+				22EBDE1C225D212D00DB72F3 /* User.swift in Sources */,
 				D996B685225A3C0A004576BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
