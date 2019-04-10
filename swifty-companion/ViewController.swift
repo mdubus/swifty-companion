@@ -29,6 +29,7 @@ class ViewController: UIViewController, APIDelegate {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         guard let vc = storyBoard.instantiateViewController(withIdentifier: "userViewController") as? UserViewController else {self.manageError("No userViewController found !"); return}
         vc.user = userData
+        guard userData.login != nil else {self.manageError("Not a valid login"); return}
         if let navigator = navigationController {
             navigator.pushViewController(vc, animated: true)
         }
