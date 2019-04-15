@@ -13,9 +13,17 @@ class ViewController: UIViewController, APIDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     var token: String = ""
     var apiController:APIController?
+    let gradientLayer = CAGradientLayer()
+    
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        gradientLayer.frame = view.layer.bounds
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer:gradientLayer)
         apiController = APIController(delegate: self)
         apiController!.getToken()
         searchBar.autocapitalizationType = .none
