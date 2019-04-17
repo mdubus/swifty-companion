@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,41 +64,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="724-al-EaX">
-                                <rect key="frame" x="20" y="105" width="335" height="90.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uVC-wx-Gyp">
+                                <rect key="frame" x="20" y="90" width="335" height="110.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="prenom + nom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvw-YO-2Ib">
-                                        <rect key="frame" x="8" y="50" width="319" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="full name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-uQ-0JX">
+                                        <rect key="frame" x="8" y="70" width="319" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <edgeInsets key="layoutMargins" top="50" left="8" bottom="20" right="8"/>
+                                <edgeInsets key="layoutMargins" top="70" left="8" bottom="20" right="8"/>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wyf-jM-NXT">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUq-sd-jco">
                                 <rect key="frame" x="137" y="40" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="FYE-4j-X0g"/>
-                                    <constraint firstAttribute="width" constant="100" id="wio-hz-E0Z"/>
+                                    <constraint firstAttribute="height" constant="100" id="7hQ-Ip-4Ko"/>
+                                    <constraint firstAttribute="width" constant="100" id="ENo-BZ-tnO"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="S8I-nx-c7l" firstAttribute="trailing" secondItem="724-al-EaX" secondAttribute="trailing" constant="20" id="Ay3-RJ-yCa"/>
-                            <constraint firstItem="724-al-EaX" firstAttribute="leading" secondItem="S8I-nx-c7l" secondAttribute="leading" constant="20" id="dRC-pL-OcD"/>
-                            <constraint firstItem="724-al-EaX" firstAttribute="top" secondItem="Wyf-jM-NXT" secondAttribute="bottom" constant="-35" id="dzq-Hg-Ymw"/>
-                            <constraint firstItem="Wyf-jM-NXT" firstAttribute="top" secondItem="S8I-nx-c7l" secondAttribute="top" constant="20" id="heH-dw-FXi"/>
-                            <constraint firstItem="Wyf-jM-NXT" firstAttribute="centerX" secondItem="S8I-nx-c7l" secondAttribute="centerX" id="uCV-uf-7RV"/>
+                            <constraint firstItem="uVC-wx-Gyp" firstAttribute="top" secondItem="qUq-sd-jco" secondAttribute="top" constant="50" id="4vx-sf-kz6"/>
+                            <constraint firstItem="S8I-nx-c7l" firstAttribute="trailing" secondItem="uVC-wx-Gyp" secondAttribute="trailing" constant="20" id="COt-uS-3F0"/>
+                            <constraint firstItem="qUq-sd-jco" firstAttribute="top" secondItem="S8I-nx-c7l" secondAttribute="top" constant="20" id="RL1-bf-Zmz"/>
+                            <constraint firstItem="uVC-wx-Gyp" firstAttribute="leading" secondItem="S8I-nx-c7l" secondAttribute="leading" constant="20" id="dwI-cs-daq"/>
+                            <constraint firstItem="qUq-sd-jco" firstAttribute="centerX" secondItem="oex-eN-SFq" secondAttribute="centerX" id="iND-Um-fj6"/>
+                            <constraint firstItem="uVC-wx-Gyp" firstAttribute="centerX" secondItem="oex-eN-SFq" secondAttribute="centerX" id="zr2-vQ-369"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8I-nx-c7l"/>
                     </view>
                     <connections>
-                        <outlet property="fullName" destination="bvw-YO-2Ib" id="uHc-t5-9QB"/>
-                        <outlet property="image" destination="Wyf-jM-NXT" id="vyF-AC-asf"/>
-                        <outlet property="profileStackView" destination="724-al-EaX" id="wIJ-gP-mQ0"/>
+                        <outlet property="fullName" destination="E3M-uQ-0JX" id="TET-Sb-rMC"/>
+                        <outlet property="profileImage" destination="qUq-sd-jco" id="9Q2-jT-S6m"/>
+                        <outlet property="profileStackView" destination="uVC-wx-Gyp" id="EPr-hY-SWQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpJ-gV-rpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
