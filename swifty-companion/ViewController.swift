@@ -10,6 +10,10 @@
 import UIKit
 
 class ViewController: UIViewController, APIDelegate {
+    func manageError(_ error: String) {
+        alert(view:self, message:error)
+    }
+    
     @IBOutlet weak var searchBar: UISearchBar!
     var token: String = ""
     var apiController:APIController?
@@ -35,24 +39,16 @@ class ViewController: UIViewController, APIDelegate {
     
     func retrieveUserData(_ userData: User) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        guard let vc = storyBoard.instantiateViewController(withIdentifier: "userViewController") as? UserViewController else {self.manageError("No userViewController found !"); return}
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: "userViewController") as? UserViewController else {alert(view:self, message:"No userViewController found !"); return}
         vc.user = userData
-        guard userData.login != nil else {self.manageError("Not a valid login"); return}
+        guard userData.login != nil else {alert(view:self, message: "Not a valid login"); return}
         if let navigator = navigationController {
             navigator.pushViewController(vc, animated: true)
         }
     }
     
-    func manageError(_ error: String) {
-        let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
-        }
-    }
-    
     @IBAction func searchForLogin(_ sender: UIButton) {
-        guard let login = searchBar.text, login.trimmingCharacters(in: .whitespaces).isEmpty == false else {self.manageError("Please provide a login"); return}
+        guard let login = searchBar.text, login.trimmingCharacters(in: .whitespaces).isEmpty == false else {alert(view:self, message:"Please provide a login"); return}
         apiController!.getUser(login)
     }
     

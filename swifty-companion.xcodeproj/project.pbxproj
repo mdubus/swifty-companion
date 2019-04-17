@@ -13,6 +13,8 @@
 		22E71AE2226523C6008F4F23 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E71AE1226523C6008F4F23 /* UIStackView+Extension.swift */; };
 		22EBDE1C225D212D00DB72F3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBDE1B225D212D00DB72F3 /* User.swift */; };
 		22EBDE1E225D2FBA00DB72F3 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBDE1D225D2FBA00DB72F3 /* UserViewController.swift */; };
+		22FD7F012267AEF200E77C9B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD7F002267AEF200E77C9B /* UIImageView+Extension.swift */; };
+		22FD7F052267B36400E77C9B /* alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD7F042267B36400E77C9B /* alert.swift */; };
 		6EA2C1D866535ACBBDB24560 /* Pods_swifty_companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0325D37FCC5A2C0328A4D811 /* Pods_swifty_companion.framework */; };
 		D996B685225A3C0A004576BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996B684225A3C0A004576BF /* AppDelegate.swift */; };
 		D996B687225A3C0A004576BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996B686225A3C0A004576BF /* ViewController.swift */; };
@@ -29,6 +31,8 @@
 		22E71AE1226523C6008F4F23 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		22EBDE1B225D212D00DB72F3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22EBDE1D225D2FBA00DB72F3 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		22FD7F002267AEF200E77C9B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		22FD7F042267B36400E77C9B /* alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alert.swift; sourceTree = "<group>"; };
 		5AF829BCDA58635170053B55 /* Pods-swifty-companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swifty-companion.debug.xcconfig"; path = "Target Support Files/Pods-swifty-companion/Pods-swifty-companion.debug.xcconfig"; sourceTree = "<group>"; };
 		D996B681225A3C0A004576BF /* swifty-companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swifty-companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D996B684225A3C0A004576BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			children = (
 				22E71ADF22651888008F4F23 /* UIView+Extension.swift */,
 				22E71AE1226523C6008F4F23 /* UIStackView+Extension.swift */,
+				22FD7F002267AEF200E77C9B /* UIImageView+Extension.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 				D996B68D225A3C0A004576BF /* LaunchScreen.storyboard */,
 				D996B690225A3C0A004576BF /* Info.plist */,
 				22EBDE1D225D2FBA00DB72F3 /* UserViewController.swift */,
+				22FD7F042267B36400E77C9B /* alert.swift */,
 			);
 			path = "swifty-companion";
 			sourceTree = "<group>";
@@ -246,10 +252,12 @@
 				22CBE7F8225BA3CA00AD59D2 /* APIController.swift in Sources */,
 				22EBDE1E225D2FBA00DB72F3 /* UserViewController.swift in Sources */,
 				22CBE7F5225B969700AD59D2 /* Token.swift in Sources */,
+				22FD7F012267AEF200E77C9B /* UIImageView+Extension.swift in Sources */,
 				D996B687225A3C0A004576BF /* ViewController.swift in Sources */,
 				22EBDE1C225D212D00DB72F3 /* User.swift in Sources */,
 				D996B685225A3C0A004576BF /* AppDelegate.swift in Sources */,
 				22E71AE022651888008F4F23 /* UIView+Extension.swift in Sources */,
+				22FD7F052267B36400E77C9B /* alert.swift in Sources */,
 				22E71AE2226523C6008F4F23 /* UIStackView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

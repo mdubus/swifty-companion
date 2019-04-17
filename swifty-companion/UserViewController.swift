@@ -25,6 +25,26 @@ class UserViewController: UIViewController {
         }
     }
     
+    func setProfileInformations() {
+        // Set View
+        
+        self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer: gradientLayer)
+        profileStackView.addBackground(color: .white)
+        
+        // Set Profile Picture
+        
+        if let userImage = self.user?.getProfileImage(view: self) {
+            let square = CGSize(width: 100, height: 100)
+            profileImage.setCornerRadiusWithShadow(square.width/2)
+            let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: square))
+            imageView.circle(image: userImage, cornerRadius: square.width / 2)
+            profileImage.addSubview(imageView)
+        }
+        
+        // Set User Full Name
+        
+        fullName.text = self.user?.getFullName(view:self)
+    }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -35,36 +55,10 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         
         print("***********************************************")
-        //        print(self.user)
-        self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer: gradientLayer)
-        profileStackView.addBackground(color: .white)
         
-        if let profilePicture = self.user?.imageURL, let url = URL(string: profilePicture), let data = try? Data(contentsOf: url), let userImage = UIImage(data: data){
-            
-            let square = CGSize(width: 100, height: 100)
-            
-            profileImage.clipsToBounds = false
-            profileImage.layer.cornerRadius = square.width/2
-            profileImage.layer.shadowColor = UIColor.black.cgColor
-            profileImage.layer.shadowOpacity = 1
-            profileImage.layer.shadowOffset = CGSize.zero
-            profileImage.layer.shadowRadius = 10
-            profileImage.layer.shadowPath = UIBezierPath(roundedRect: profileImage.bounds, cornerRadius: square.width/2).cgPath
-            
-            let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: square))
-            imageView.clipsToBounds = true
-            imageView.layer.cornerRadius = square.width/2
-            imageView.layer.borderColor = UIColor.white.cgColor
-            imageView.layer.borderWidth = 4.0
-            imageView.contentMode = .scaleAspectFill
-            imageView.image = userImage
-            
-            profileImage.addSubview(imageView)
-            
-        }
+        self.setProfileInformations()
         
-        guard let userFirstName = self.user?.firstName, let userLastName = self.user?.lastName else {self.manageError("Missing user data : firstName or lastName"); return}
-        fullName.text = "\(userFirstName) \(userLastName)"
+        
         
     }
     

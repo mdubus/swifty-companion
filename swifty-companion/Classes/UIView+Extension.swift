@@ -21,5 +21,15 @@ extension UIView {
         gradientLayer.endPoint = CGPoint(x: 1.0, y:1.0)
         layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    func setCornerRadiusWithShadow(_ cornerRadius: CGFloat) {
+        self.clipsToBounds = false
+        self.layer.cornerRadius = cornerRadius
+        self.layer.shadowColor = sweetViolet.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 10
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath
+    }
 
 }
