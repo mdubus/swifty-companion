@@ -17,7 +17,7 @@ struct UserProject:Codable {
     let finalMark: Int?
     let validated: Bool?
     let project: Project?
-
+    
     private enum CodingKeys : String, CodingKey {
         case finalMark="final_mark", validated="validated?",project
     }
@@ -63,5 +63,20 @@ class User: Codable {
     func getProfileImage(view: UIViewController) -> UIImage? {
         guard let profilePicture = self.imageURL, let url = URL(string: profilePicture), let data = try? Data(contentsOf: url), let userImage = UIImage(data: data) else {alert(view:view, message:"no profile picture"); return nil}
         return userImage
+    }
+    
+    func getEmail(view: UIViewController) -> String? {
+        guard let email = self.email else { alert(view:view, message:"no email" ) ;return nil}
+        return email
+    }
+    
+    func getPhone(view: UIViewController) -> String? {
+        guard let phone = self.phone else { return "No phone number"}
+        return phone
+    }
+    
+    func getLocation(view: UIViewController) -> String? {
+        guard let location = self.location else { return "Unavailable"}
+        return location
     }
 }

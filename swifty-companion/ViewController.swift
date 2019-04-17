@@ -10,6 +10,10 @@
 import UIKit
 
 class ViewController: UIViewController, APIDelegate {
+    
+    @IBOutlet weak var input: UISearchBar!
+    @IBOutlet weak var submit: UIButton!
+    
     func manageError(_ error: String) {
         alert(view:self, message:error)
     }
@@ -27,7 +31,9 @@ class ViewController: UIViewController, APIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer:gradientLayer)
+        input.layer.cornerRadius = 10.0
+        submit.layer.cornerRadius = 10.0
+        self.view.setGradientBackground(colorOne: pink, colorTwo: sweetViolet, gradientLayer:gradientLayer)
         apiController = APIController(delegate: self)
         apiController!.getToken()
         searchBar.autocapitalizationType = .none

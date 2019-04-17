@@ -9,27 +9,22 @@
 import UIKit
 
 class UserViewController: UIViewController {
+    @IBOutlet weak var profileInfosView: UIView!
     @IBOutlet weak var profileImage: UIView!
-    @IBOutlet weak var profileStackView: UIStackView!
     @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var location: UILabel!
     
     let gradientLayer = CAGradientLayer()
     
     var user:User?
-    
-    func manageError(_ error: String) {
-        let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
-        }
-    }
+
     
     func setProfileInformations() {
         // Set View
+        profileInfosView.setCornerRadiusWithShadow(10.0)
         
-        self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer: gradientLayer)
-        profileStackView.addBackground(color: .white)
         
         // Set Profile Picture
         
@@ -41,9 +36,18 @@ class UserViewController: UIViewController {
             profileImage.addSubview(imageView)
         }
         
-        // Set User Full Name
-        
         fullName.text = self.user?.getFullName(view:self)
+        email.text = self.user?.getEmail(view: self)
+        phone.text = self.user?.getPhone(view: self)
+        location.text = self.user?.getLocation(view: self)
+        
+        location.layer.backgroundColor = pink.cgColor
+        location.clipsToBounds = true
+        location.layer.cornerRadius = 10
+        location.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        location.textColor = .white
+        
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -53,6 +57,7 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.setGradientBackground(colorOne: pink, colorTwo: sweetViolet, gradientLayer: gradientLayer)
         
         print("***********************************************")
         
