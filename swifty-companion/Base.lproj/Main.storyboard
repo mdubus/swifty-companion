@@ -127,14 +127,62 @@
                                                     <constraint firstAttribute="width" constant="100" id="Ej6-0q-Qmy"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHf-yG-UNL">
+                                                <rect key="frame" x="20" y="291.5" width="335" height="300"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wl0-Uo-Ifx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="300"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectCell" textLabel="BWe-ki-ZgH" detailTextLabel="OJ1-14-Tfu" style="IBUITableViewCellStyleValue1" id="d1Q-gi-fXs">
+                                                                <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d1Q-gi-fXs" id="hKV-bg-onx">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BWe-ki-ZgH">
+                                                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                                            <autoresizingMask key="autoresizingMask"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OJ1-14-Tfu">
+                                                                            <rect key="frame" x="276" y="12" width="44" height="20.5"/>
+                                                                            <autoresizingMask key="autoresizingMask"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </tableViewCellContentView>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="G6W-b6-aad"/>
+                                                    <constraint firstItem="wl0-Uo-Ifx" firstAttribute="centerY" secondItem="oHf-yG-UNL" secondAttribute="centerY" id="NmS-Nu-k4u"/>
+                                                    <constraint firstItem="wl0-Uo-Ifx" firstAttribute="width" secondItem="oHf-yG-UNL" secondAttribute="width" id="ghi-uw-gv2"/>
+                                                    <constraint firstItem="wl0-Uo-Ifx" firstAttribute="centerX" secondItem="oHf-yG-UNL" secondAttribute="centerX" id="nJo-Sj-Twd"/>
+                                                    <constraint firstItem="wl0-Uo-Ifx" firstAttribute="height" secondItem="oHf-yG-UNL" secondAttribute="height" id="wh4-E7-SAR"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="4PL-1I-RKo" firstAttribute="top" secondItem="2I2-BN-061" secondAttribute="top" constant="20" id="4Yc-np-rOg"/>
+                                            <constraint firstItem="oHf-yG-UNL" firstAttribute="centerX" secondItem="2I2-BN-061" secondAttribute="centerX" id="O5i-Tw-amX"/>
                                             <constraint firstAttribute="trailing" secondItem="JgX-UD-hm8" secondAttribute="trailing" constant="20" id="X7o-hV-O5G"/>
                                             <constraint firstItem="4PL-1I-RKo" firstAttribute="centerX" secondItem="2I2-BN-061" secondAttribute="centerX" id="YDd-0O-sN8"/>
                                             <constraint firstItem="JgX-UD-hm8" firstAttribute="leading" secondItem="2I2-BN-061" secondAttribute="leading" constant="20" id="YFH-eR-Hw3"/>
                                             <constraint firstItem="JgX-UD-hm8" firstAttribute="top" secondItem="4PL-1I-RKo" secondAttribute="bottom" constant="-50" id="eUa-Uw-GCB"/>
+                                            <constraint firstItem="oHf-yG-UNL" firstAttribute="centerX" secondItem="2I2-BN-061" secondAttribute="centerX" id="prJ-wn-r3h"/>
+                                            <constraint firstItem="oHf-yG-UNL" firstAttribute="leading" secondItem="2I2-BN-061" secondAttribute="leading" constant="20" id="tbl-tB-gLZ"/>
+                                            <constraint firstItem="oHf-yG-UNL" firstAttribute="top" secondItem="JgX-UD-hm8" secondAttribute="bottom" constant="30" id="u7G-8w-et2"/>
+                                            <constraint firstAttribute="trailing" secondItem="oHf-yG-UNL" secondAttribute="trailing" constant="20" id="v35-8X-YeH"/>
                                             <constraint firstItem="JgX-UD-hm8" firstAttribute="centerX" secondItem="2I2-BN-061" secondAttribute="centerX" id="yUP-5J-1FB"/>
                                         </constraints>
                                     </view>
@@ -166,6 +214,8 @@
                         <outlet property="phone" destination="WiL-mv-exX" id="o10-vH-lND"/>
                         <outlet property="profileImage" destination="4PL-1I-RKo" id="aIf-3k-Kdc"/>
                         <outlet property="profileInfosView" destination="JgX-UD-hm8" id="chp-eX-XuW"/>
+                        <outlet property="projectsTableView" destination="wl0-Uo-Ifx" id="hS8-fU-mZ3"/>
+                        <outlet property="projectsView" destination="oHf-yG-UNL" id="qHs-ST-70Q"/>
                         <outlet property="scrollView" destination="uAm-8E-KSl" id="ATl-zQ-r5P"/>
                     </connections>
                 </viewController>

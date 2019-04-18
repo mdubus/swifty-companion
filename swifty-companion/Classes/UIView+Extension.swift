@@ -32,5 +32,4 @@ extension UIView {
         self.layer.shadowRadius = 10
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath
     }
-
 }

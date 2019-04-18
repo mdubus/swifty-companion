@@ -8,7 +8,10 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+// Get level ?
+
+class UserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
         @IBOutlet weak var profileInfosView: UIView!
@@ -17,7 +20,9 @@ class UserViewController: UIViewController {
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var location: UILabel!
-//
+    @IBOutlet weak var projectsTableView: UITableView!
+    @IBOutlet weak var projectsView: UIView!
+    
     let gradientLayer = CAGradientLayer()
 
     var user:User?
@@ -57,16 +62,53 @@ class UserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set main View
         self.view.setGradientBackground(colorOne: pink, colorTwo: sweetViolet, gradientLayer: gradientLayer)
         scrollView.backgroundColor = UIColor.clear
         mainView.backgroundColor = UIColor.clear
         
+        // Set projects View
+        projectsTableView.delegate = self
+        projectsTableView.dataSource = self
+        projectsView.setCornerRadiusWithShadow(10.0)
+        projectsTableView.layer.cornerRadius = 10.0
+        
         print("***********************************************")
         
         self.setProfileInformations()
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let projects = self.user!.projects else {alert(view:self, message: "No project for user"); return 0}
+        return projects.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath)
+        guard let projects = self.user!.projects else {alert(view:self, message: "No project for user"); return cell}
+        cell.textLabel?.text = projects[indexPath.row].project?.name
+        
+        
+        if let finalMark = projects[indexPath.row].finalMark {
+            cell.detailTextLabel?.text = String(finalMark)
+            if let validated = projects[indexPath.row].validated {
+                if (validated) {
+                    cell.detailTextLabel?.textColor = UIColor.green
+                }
+                else if (validated == false) {
+                    cell.detailTextLabel?.textColor = UIColor.red
+                }
+            }
+        }
+        else {
+            cell.detailTextLabel?.text = "No notation yet"
+        }
         
         
         
+        return cell
     }
     
     override func didReceiveMemoryWarning() {
