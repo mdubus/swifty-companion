@@ -71,7 +71,7 @@ class ViewController: UIViewController, APIDelegate {
         let trimmedLogin = escapedLogin.trimmingCharacters(in: .whitespaces)
         
         if trimmedLogin.isEmpty == false {
-            apiController!.getUser(trimmedLogin)
+            apiController!.getUser(trimmedLogin.lowercased())
             submit.isEnabled = false
         }
         else {

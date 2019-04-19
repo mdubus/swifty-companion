@@ -143,9 +143,6 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         else {
             cell.detailTextLabel?.textColor = UIColor.black
         }
-        
-        
-        
         return cell
     }
     
