@@ -46,8 +46,8 @@ class APIController {
                 guard let token = tokenData.accessToken else {self.delegate?.manageError("Unable to retrieve token"); return}
                 self.delegate?.retrieveToken(token)
                 self.token = token
-            } catch let error {
-                self.delegate?.manageError(error.localizedDescription)
+            } catch  {
+                self.delegate?.manageError("Unable to get token")
             }
         }
     }
@@ -57,19 +57,17 @@ class APIController {
         let header: HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
                                    "Authorization" : "Bearer \(token)"];
         
-        print("TOKEN = \(token)")
-        
         Alamofire.request("\(USERURL)/\(login)", method: .get, headers: header).response {response in
             guard let data = response.data else { self.delegate?.manageError("Unable to retrieve user by login"); return }
-//                        print(String(data: data, encoding: String.Encoding.utf8) as Any)
+            // print(String(data: data, encoding: String.Encoding.utf8) as Any)
             do {
                 let decoder = JSONDecoder()
                 let userData = try decoder.decode(User.self, from: data)
-//                print(userData)
+                // print(userData)
                 self.delegate?.retrieveUserData(userData)
                 
-            } catch let error {
-                self.delegate?.manageError(error.localizedDescription)
+            } catch  {
+                self.delegate?.manageError("Unable to decode user's data")
             }
         }
     }

@@ -70,6 +70,8 @@
 		22CBE7F6225BA3B400AD59D2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				22EBDE1D225D2FBA00DB72F3 /* UserViewController.swift */,
+				D996B686225A3C0A004576BF /* ViewController.swift */,
 				22CBE7F7225BA3CA00AD59D2 /* APIController.swift */,
 			);
 			path = Controller;
@@ -127,13 +129,11 @@
 				22CBE7F6225BA3B400AD59D2 /* Controller */,
 				22CBE7F3225B968800AD59D2 /* Models */,
 				D996B684225A3C0A004576BF /* AppDelegate.swift */,
-				D996B686225A3C0A004576BF /* ViewController.swift */,
 				D996B688225A3C0A004576BF /* Main.storyboard */,
 				D996B68B225A3C0A004576BF /* Assets.xcassets */,
 				D996B68D225A3C0A004576BF /* LaunchScreen.storyboard */,
 				D996B690225A3C0A004576BF /* Info.plist */,
 				D971128A2269BCE000BE14F1 /* constants.swift */,
-				22EBDE1D225D2FBA00DB72F3 /* UserViewController.swift */,
 				22FD7F042267B36400E77C9B /* alert.swift */,
 			);
 			path = "swifty-companion";

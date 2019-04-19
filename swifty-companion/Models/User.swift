@@ -11,15 +11,18 @@ import UIKit
 
 struct Project:Codable {
     let name: String?
+    let parent_id: Int?
 }
 
 struct UserProject:Codable {
+    let cursusIDs : [Int]
     let finalMark: Int?
+    let status: String?
     let validated: Bool?
     let project: Project?
     
     private enum CodingKeys : String, CodingKey {
-        case finalMark="final_mark", validated="validated?",project
+        case cursusIDs="cursus_ids", finalMark="final_mark", status, validated="validated?", project
     }
 }
 
@@ -55,13 +58,16 @@ class User: Codable {
         case email, login, firstName="first_name", lastName="last_name", phone, imageURL="image_url", location, cursus="cursus_users", projects="projects_users"
     }
     
+    
     func getFullName(view: UIViewController) -> String? {
         guard let userFirstName = self.firstName, let userLastName = self.lastName else { alert(view:view, message:"no full name found"); return nil}
         return "\(userFirstName) \(userLastName)"
     }
     
     func getProfileImage(view: UIViewController) -> UIImage? {
-        guard let profilePicture = self.imageURL, let url = URL(string: profilePicture), let data = try? Data(contentsOf: url), let userImage = UIImage(data: data) else {alert(view:view, message:"no profile picture"); return nil}
+        guard let profilePicture = self.imageURL, let url = URL(string: profilePicture), let data = try? Data(contentsOf: url), let userImage = UIImage(data: data) else {
+            return UIImage(named: "default-picture")
+            }
         return userImage
     }
     
@@ -80,8 +86,19 @@ class User: Codable {
         return location
     }
     
+    func getProjects() -> [UserProject]? {
+        guard let projects = self.projects else { return [] }
+        
+        let userProjects = projects.filter({ ($0.cursusIDs.contains(studentCursus) || $0.cursusIDs.contains(seniorCursus)) && $0.project?.parent_id == nil})
+        if (userProjects.count > 0) {return userProjects}
+        
+        return []
+    }
+    
     func getLevel() -> String {
-        guard let cursus = self.cursus else { return "No cursus"}
+        guard let cursus = self.cursus else {  return "0"}
+        if cursus.count == 0 {return "0"}
+        
         // filter cursus
         guard let level = cursus[0].level else {return "0"}
         return level.description
