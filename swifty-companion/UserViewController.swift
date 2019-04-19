@@ -14,12 +14,14 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-        @IBOutlet weak var profileInfosView: UIView!
+    @IBOutlet weak var profileInfosView: UIView!
     @IBOutlet weak var profileImage: UIView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var level: UILabel!
+    @IBOutlet weak var projectsLabel: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var projectsView: UIView!
     
@@ -28,31 +30,45 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var user:User?
 
 
-    func setProfileInformations() {
+    func setProfileView() {
+        guard let user = user else {alert(view: self, message: "No user provided"); return}
         // Set View
-        profileInfosView.setCornerRadiusWithShadow(10.0)
-
+        profileInfosView.layer.cornerRadius = radius
+        profileInfosView.setShadow(radius)
 
         // Set Profile Picture
-
-        if let userImage = self.user?.getProfileImage(view: self) {
+        if let userImage = user.getProfileImage(view: self) {
             let square = CGSize(width: 100, height: 100)
-            profileImage.setCornerRadiusWithShadow(square.width/2)
+            profileImage.layer.cornerRadius = radius
+            profileImage.setShadow(square.width/2)
             let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: square))
             imageView.circle(image: userImage, cornerRadius: square.width / 2)
             profileImage.addSubview(imageView)
         }
 
-        fullName.text = self.user?.getFullName(view:self)
-        email.text = self.user?.getEmail(view: self)
-        phone.text = self.user?.getPhone(view: self)
-        location.text = self.user?.getLocation(view: self)
-
-        location.layer.backgroundColor = pink.cgColor
-        location.clipsToBounds = true
-        location.layer.cornerRadius = 10
-        location.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        location.textColor = .white
+        // Set user informations
+        fullName.text = user.getFullName(view:self)
+        email.text = user.getEmail(view: self)
+        phone.text = user.getPhone(view: self)
+        location.text = user.getLocation(view: self)
+        
+        level.text = "Level \(user.getLevel())"
+        level.layer.backgroundColor = sweetPink.cgColor
+        level.setBottomCornerRadius(radius)
+        level.textColor = .white
+    }
+    
+    func setProjectsView() {
+        projectsTableView.delegate = self
+        projectsTableView.dataSource = self
+        
+        projectsLabel.setTopCornerRadius(radius)
+        projectsLabel.layer.backgroundColor = sweetPink.cgColor
+        projectsLabel.textColor = .white
+        
+        projectsView.layer.cornerRadius = radius
+        projectsView.setShadow(radius)
+        projectsTableView.layer.cornerRadius = radius
     }
 
     override func viewWillLayoutSubviews() {
@@ -64,19 +80,15 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         // Set main View
-        self.view.setGradientBackground(colorOne: pink, colorTwo: sweetViolet, gradientLayer: gradientLayer)
+        self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer: gradientLayer)
         scrollView.backgroundColor = UIColor.clear
         mainView.backgroundColor = UIColor.clear
-        
-        // Set projects View
-        projectsTableView.delegate = self
-        projectsTableView.dataSource = self
-        projectsView.setCornerRadiusWithShadow(10.0)
-        projectsTableView.layer.cornerRadius = 10.0
+
         
         print("***********************************************")
         
-        self.setProfileInformations()
+        self.setProfileView()
+        self.setProjectsView()
     }
     
     

@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-let pink = UIColor.init(red: 253.0/255.0, green: 121.0/255.0, blue: 168.0/255.0, alpha: 1.0)
-let sweetPink = UIColor.init(red: 1.0, green: 142.0/255.0, blue: 158.0/255.0, alpha: 1.0)
-let sweetViolet = UIColor.init(red: 129.0/255.0, green: 120.0/255.0, blue: 1.0, alpha: 1.0)
-
 extension UIView {
     func setGradientBackground(colorOne: UIColor, colorTwo: UIColor, gradientLayer:CAGradientLayer) {
         gradientLayer.frame = bounds
@@ -23,13 +19,24 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    func setCornerRadiusWithShadow(_ cornerRadius: CGFloat) {
+    func setBottomCornerRadius(_ radius: CGFloat) {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = radius
+        self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+    }
+    func setTopCornerRadius(_ radius: CGFloat) {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = radius
+        self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+    }
+    
+    func setShadow(_ radius: CGFloat) {
         self.clipsToBounds = false
-        self.layer.cornerRadius = cornerRadius
         self.layer.shadowColor = sweetViolet.cgColor
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowRadius = 10
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: radius).cgPath
     }
+
 }

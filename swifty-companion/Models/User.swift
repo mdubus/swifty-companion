@@ -70,13 +70,20 @@ class User: Codable {
         return email
     }
     
-    func getPhone(view: UIViewController) -> String? {
+    func getPhone(view: UIViewController) -> String {
         guard let phone = self.phone else { return "No phone number"}
         return phone
     }
     
-    func getLocation(view: UIViewController) -> String? {
+    func getLocation(view: UIViewController) -> String {
         guard let location = self.location else { return "Unavailable"}
         return location
+    }
+    
+    func getLevel() -> String {
+        guard let cursus = self.cursus else { return "No cursus"}
+        // filter cursus
+        guard let level = cursus[0].level else {return "0"}
+        return level.description
     }
 }

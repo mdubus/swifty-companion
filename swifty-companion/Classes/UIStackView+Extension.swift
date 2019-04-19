@@ -14,7 +14,7 @@ extension UIStackView {
     func addBackground(color: UIColor) {
         let subview = UIView(frame: bounds)
         subview.backgroundColor = color
-        subview.layer.cornerRadius = 10
+        subview.layer.cornerRadius = radius
         subview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         insertSubview(subview, at: 0)
     }

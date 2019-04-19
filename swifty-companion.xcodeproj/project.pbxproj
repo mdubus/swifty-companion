@@ -16,6 +16,7 @@
 		22FD7F012267AEF200E77C9B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD7F002267AEF200E77C9B /* UIImageView+Extension.swift */; };
 		22FD7F052267B36400E77C9B /* alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD7F042267B36400E77C9B /* alert.swift */; };
 		6EA2C1D866535ACBBDB24560 /* Pods_swifty_companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0325D37FCC5A2C0328A4D811 /* Pods_swifty_companion.framework */; };
+		D971128B2269BCE000BE14F1 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971128A2269BCE000BE14F1 /* constants.swift */; };
 		D996B685225A3C0A004576BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996B684225A3C0A004576BF /* AppDelegate.swift */; };
 		D996B687225A3C0A004576BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996B686225A3C0A004576BF /* ViewController.swift */; };
 		D996B68A225A3C0A004576BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D996B688225A3C0A004576BF /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		22FD7F002267AEF200E77C9B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		22FD7F042267B36400E77C9B /* alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alert.swift; sourceTree = "<group>"; };
 		5AF829BCDA58635170053B55 /* Pods-swifty-companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swifty-companion.debug.xcconfig"; path = "Target Support Files/Pods-swifty-companion/Pods-swifty-companion.debug.xcconfig"; sourceTree = "<group>"; };
+		D971128A2269BCE000BE14F1 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		D996B681225A3C0A004576BF /* swifty-companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swifty-companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D996B684225A3C0A004576BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D996B686225A3C0A004576BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				D996B68B225A3C0A004576BF /* Assets.xcassets */,
 				D996B68D225A3C0A004576BF /* LaunchScreen.storyboard */,
 				D996B690225A3C0A004576BF /* Info.plist */,
+				D971128A2269BCE000BE14F1 /* constants.swift */,
 				22EBDE1D225D2FBA00DB72F3 /* UserViewController.swift */,
 				22FD7F042267B36400E77C9B /* alert.swift */,
 			);
@@ -253,6 +256,7 @@
 				22EBDE1E225D2FBA00DB72F3 /* UserViewController.swift in Sources */,
 				22CBE7F5225B969700AD59D2 /* Token.swift in Sources */,
 				22FD7F012267AEF200E77C9B /* UIImageView+Extension.swift in Sources */,
+				D971128B2269BCE000BE14F1 /* constants.swift in Sources */,
 				D996B687225A3C0A004576BF /* ViewController.swift in Sources */,
 				22EBDE1C225D212D00DB72F3 /* User.swift in Sources */,
 				D996B685225A3C0A004576BF /* AppDelegate.swift in Sources */,

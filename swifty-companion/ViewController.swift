@@ -33,7 +33,7 @@ class ViewController: UIViewController, APIDelegate {
         super.viewDidLoad()
         input.layer.cornerRadius = 10.0
         submit.layer.cornerRadius = 10.0
-        self.view.setGradientBackground(colorOne: pink, colorTwo: sweetViolet, gradientLayer:gradientLayer)
+        self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer:gradientLayer)
         apiController = APIController(delegate: self)
         apiController!.getToken()
         searchBar.autocapitalizationType = .none
