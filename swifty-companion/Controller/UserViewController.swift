@@ -8,8 +8,6 @@
 
 import UIKit
 
-// Get level ?
-
 class UserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var mainView: UIView!
@@ -24,11 +22,15 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var projectsLabel: UILabel!
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var projectsView: UIView!
+    @IBOutlet weak var skillsView: UIView!
+    @IBOutlet weak var skillsLabel: UILabel!
+    @IBOutlet weak var skillsTableView: UITableView!
     
     let gradientLayer = CAGradientLayer()
     
     var user:User?
     var userProjects:[UserProject]?
+    var userSkills:[Skill]?
     
     
     func setProfileView() {
@@ -73,6 +75,21 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         projectsTableView.setBottomCornerRadius(radius)
     }
     
+    func setSkillsView() {
+        skillsTableView.delegate = self
+        skillsTableView.dataSource = self
+        
+        skillsLabel.setTopCornerRadius(radius)
+        skillsLabel.layer.backgroundColor = sweetPink.cgColor
+        skillsLabel.textColor = .white
+        skillsLabel.text = "SKILLS"
+        
+        skillsView.layer.cornerRadius = radius
+        skillsView.setShadow(radius)
+        skillsTableView.setBottomCornerRadius(radius)
+        
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         gradientLayer.frame = view.layer.bounds
@@ -85,7 +102,7 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // get User Projects
         self.userProjects = self.user?.getProjects()
-        
+        self.userSkills = self.user?.getSkills()
         
         // Set Main View
         self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer: gradientLayer)
@@ -100,15 +117,18 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         else {
             projectsView.isHidden = true
+            projectsView.frame.size.height = 0
+        }
+        
+        if let skills = self.userSkills, skills.count > 0 {
+            setSkillsView()
+        }
+        else {
+            skillsView.isHidden = true
+            skillsView.frame.size.height = 0
         }
     }
     
-    
-    // Get number of cells
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let projects = self.userProjects else { return 0 }
-        return projects.count
-    }
     
     // Get project Final Mark depending on Project's Status
     func getProjectFinalMark(_ project:UserProject) -> String {
@@ -126,23 +146,54 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    
+    // Get number of cells
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count = 0
+        if (tableView == projectsTableView) {
+            guard let projects = self.userProjects else { return 0 }
+            count = projects.count
+        }
+        if (tableView == skillsTableView) {
+            guard let skills = self.userSkills else { return 0 }
+            count = skills.count
+        }
+        return count
+    }
+
+    
     // Populate Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath)
-        guard let projects = self.userProjects else { return cell }
-        let cellProject = projects[indexPath.row]
-        guard let project = cellProject.project else { return cell }
-        cell.textLabel?.text = project.name
         
-        // Set project's final Mark
-        let finalMark = getProjectFinalMark(cellProject)
-        cell.detailTextLabel?.text = finalMark
-        if (cellProject.status == "finished" && cellProject.validated != nil) {
-            cell.detailTextLabel?.textColor = cellProject.validated == true ? sweetGreen : UIColor.red
+        var cell = UITableViewCell()
+        
+        if (tableView == projectsTableView) {
+            cell = tableView.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath)
+            guard let projects = self.userProjects else { return cell }
+            let cellProject = projects[indexPath.row]
+            guard let project = cellProject.project else { return cell }
+            cell.textLabel?.text = project.name
+            
+            // Set project's final Mark
+            let finalMark = getProjectFinalMark(cellProject)
+            cell.detailTextLabel?.text = finalMark
+            if (cellProject.status == "finished" && cellProject.validated != nil) {
+                cell.detailTextLabel?.textColor = cellProject.validated == true ? sweetGreen : UIColor.red
+            }
+            else {
+                cell.detailTextLabel?.textColor = UIColor.black
+            }
         }
-        else {
-            cell.detailTextLabel?.textColor = UIColor.black
+        
+        if (tableView == skillsTableView) {
+            cell = tableView.dequeueReusableCell(withIdentifier: "skillCell", for: indexPath)
+            guard let skills = self.userSkills else { return cell }
+            let cellSkill = skills[indexPath.row]
+            cell.textLabel?.text = cellSkill.name
+            let skill = cellSkill.level
+            cell.detailTextLabel?.text = String(describing: skill ?? 0.0)
         }
+        
         return cell
     }
     

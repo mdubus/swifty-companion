@@ -34,10 +34,10 @@ struct Skill:Codable {
 struct Cursus:Codable {
     let cursusId: Int?
     let level: Float?
-    let skill: [Skill]?
+    let skills: [Skill]?
     
     private enum CodingKeys : String, CodingKey {
-        case cursusId="cursus_id", level, skill
+        case cursusId="cursus_id", level, skills
     }
 }
 
@@ -93,6 +93,12 @@ class User: Codable {
         if (userProjects.count > 0) {return userProjects}
         
         return []
+    }
+    
+    func getSkills() -> [Skill]? {
+        guard let cursus = self.cursus else { return [] }
+        guard let userCursus = cursus.filter({ $0.cursusId == studentCursus || $0.cursusId == seniorCursus}).first else { return [] }
+        return userCursus.skills
     }
     
     func getLevel() -> String {

@@ -32,7 +32,6 @@ class ViewController: UIViewController, APIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        submit.isEnabled = false
         input.layer.cornerRadius = 10.0
         submit.layer.cornerRadius = 10.0
         self.view.setGradientBackground(colorOne: sweetPink, colorTwo: sweetViolet, gradientLayer:gradientLayer)
@@ -44,7 +43,6 @@ class ViewController: UIViewController, APIDelegate {
     func retrieveToken(_ token: String) {
         print("TOKEN = \(token)")
         self.token = token
-        submit.isEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
