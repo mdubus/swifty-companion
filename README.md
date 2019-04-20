@@ -18,4 +18,4 @@ It has 2 views : on the first one, you can search for a login. If the user doesn
 
 ## Demo
 
-[![Watch the video](https://www.youtube.com/upload_thumbnail?v=H-2i5EAt36g&t=1&ts=1555752373421)](https://youtu.be/H-2i5EAt36g)
+[![Watch the video](https://i.ytimg.com/vi/H-2i5EAt36g/1.jpg)](https://youtu.be/H-2i5EAt36g)
